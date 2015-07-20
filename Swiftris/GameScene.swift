@@ -77,7 +77,7 @@ class GameScene: SKScene {
         let x: CGFloat = LayerPosition.x + (CGFloat(column) * BlockSize) + (BlockSize / 2)
         let y: CGFloat = LayerPosition.y + ((CGFloat(row) * BlockSize) + (BlockSize / 2))
         
-        return CGPoint(x, y)
+        return CGPoint(x:x, y:y)
     }
     
     func addPreviewShapeToScene(shape:Shape, completion:() -> ()) {
@@ -89,7 +89,7 @@ class GameScene: SKScene {
             }
             let sprite = SKSpriteNode(texture: texture)
             
-            sprite.position = pointForColumn(block.column, row: block.row -2)
+            sprite.position = pointForColumn(block.column, row: block.row - 2)
             shapeLayer.addChild(sprite)
             block.sprite = sprite
             
@@ -110,7 +110,7 @@ class GameScene: SKScene {
         for (idx, block) in enumerate(shape.blocks) {
             let sprite = block.sprite!
             let moveTo = pointForColumn(block.column, row: block.row)
-            let moveToAction:SKaction = SKAction.moveTo(moveTo, duration: 0.2)
+            let moveToAction:SKAction = SKAction.moveTo(moveTo, duration: 0.2)
             moveToAction.timingMode = .EaseOut
             sprite.runAction(SKAction.group([moveToAction, SKAction.fadeAlphaTo(1.0, duration: 0.2)]), completion:nil)
         }
