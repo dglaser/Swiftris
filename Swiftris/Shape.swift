@@ -160,7 +160,7 @@ class Shape: Hashable, Printable {
         case 5:
             return SShape(column:startingColumn, row:startingRow)
         default:
-            return ZquareShape(column:startingColumn, row:startingRow)
+            return ZShape(column:startingColumn, row:startingRow)
         }
     }
     
